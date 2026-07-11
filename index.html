@@ -1,74 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project Workspace</title>
-<script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Positioning Assignment</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-white">
 
-  <!-- Navbar -->
-  <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-    <div class="font-bold text-lg">✦ Project</div>
-    <ul class="hidden md:flex items-center gap-6 text-sm text-gray-700">
-      <li><a href="#" class="hover:text-black">Product</a></li>
-      <li><a href="#" class="hover:text-black">Solutions</a></li>
-      <li><a href="#" class="hover:text-black">Resources</a></li>
-      <li><a href="#" class="hover:text-black">Pricing</a></li>
-      <li><a href="#" class="hover:text-black">Log In</a></li>
-    </ul>
-    <button class="bg-black text-white text-sm px-4 py-2 rounded">Get AI free.</button>
-  </nav>
+<body class="bg-gray-100">
 
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-b from-orange-100 to-white pt-16 pb-24 px-6 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-3">
-      Write, plan, share.<br>
-      With AI at your side.
-    </h1>
-    <p class="text-gray-600 max-w-md mx-auto mb-8">
-      A simple workspace where you and your team can plan tasks, write docs and
-      keep projects moving without switching tabs every 5 minutes.
-    </p>
+    <!-- Sticky Navbar -->
+    <nav class="sticky top-0 bg-white border-b p-4 flex justify-between items-center">
+        <h1 class="font-bold text-xl">Project</h1>
 
-    <!-- CTA Buttons -->
-    <div class="relative flex justify-center gap-4 mb-16">
-      <button class="bg-black text-white px-6 py-3 rounded">Get AI free →</button>
-      <button class="border border-gray-400 px-6 py-3 rounded">Request a demo</button>
-    </div>
+        <ul class="flex gap-6">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
 
-    <!-- Dashboard Preview -->
-    <div class="relative max-w-3xl mx-auto">
-      <img src="https://placehold.co/900x500/f3f4f6/9ca3af?text=Dashboard+Preview"
-           alt="dashboard preview" class="absolute rounded-lg shadow-lg w-full">
+    <!-- Hero Section -->
+    <section class="text-center py-16">
 
-      <!-- spacer to keep section height since image is absolute -->
-      <div class="w-full pt-[55%]"></div>
+        <h2 class="text-4xl font-bold mb-4">
+            Welcome to Our Workspace
+        </h2>
 
-      <!-- Floating Cards -->
-      <div class="absolute -left-6 top-10 bg-white shadow-md rounded-md px-4 py-2 text-sm text-left z-10 hidden sm:block">
-        <p>☑ 12 tasks completed today</p>
-      </div>
+        <p class="mb-12">
+            Manage your projects easily using one simple workspace.
+        </p>
 
-      <div class="absolute -right-6 top-32 bg-white shadow-md rounded-md px-4 py-2 text-sm text-left z-10 hidden sm:block">
-        <p>↗ Status: On Track</p>
-      </div>
+        <!-- Relative + Absolute CTA Buttons -->
+        <div class="relative w-96 h-24 mx-auto mb-16 border">
 
-      <div class="absolute left-10 -bottom-6 bg-white shadow-md rounded-md px-4 py-2 text-sm flex items-center gap-2 z-10 hidden sm:flex">
-        <div class="flex -space-x-2">
-          <img src="https://placehold.co/24x24" class="w-6 h-6 rounded-full border-2 border-white">
-          <img src="https://placehold.co/24x24" class="w-6 h-6 rounded-full border-2 border-white">
+            <button
+                class="absolute left-4 top-4 bg-black text-white px-5 py-2 rounded">
+                Get Started
+            </button>
+
+            <button
+                class="absolute right-4 bottom-4 border border-black px-5 py-2 rounded">
+                Learn More
+            </button>
+
         </div>
-        <span>+5 online</span>
-      </div>
 
-      <!-- Fixed chat widget -->
-      <button class="fixed bottom-6 right-6 z-50 bg-black text-white w-12 h-12 rounded-full shadow-lg">
-        💬
-      </button>
-    </div>
-  </section>
+        <!-- Dashboard Section -->
+        <div class="relative w-3/4 h-96 mx-auto border bg-white">
+
+            <img
+                src="https://placehold.co/800x400"
+                alt="Dashboard"
+                class="w-full h-full object-cover">
+
+            <!-- Floating Card -->
+            <div class="absolute top-5 left-5 bg-white border p-3">
+                Tasks Completed
+            </div>
+
+            <!-- Floating Card -->
+            <div class="absolute top-20 right-5 bg-white border p-3">
+                Team Online
+            </div>
+
+            <!-- Floating Card -->
+            <div class="absolute bottom-5 left-1/2 -translate-x-1/2 bg-white border p-3">
+                Progress: 80%
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Fixed Chat Button -->
+    <button
+        class="fixed bottom-5 right-5 bg-blue-600 text-white px-4 py-3 rounded-full">
+        Chat
+    </button>
 
 </body>
 </html>
