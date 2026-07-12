@@ -3,103 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tailwind Positioning Assignment</title>
-
+    <meta name="description" content="+ Project: Write, plan, and share your work with AI. The all-in-one project management workspace.">
+    <title>+ Project – Write, Plan, Share</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-white font-sans antialiased">
 
     <!-- Sticky Navbar -->
-    <nav class="sticky top-0 z-50 bg-white border-b p-4 flex justify-between items-center">
-        <h1 class="font-bold text-xl">+ Project</h1>
+    <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
 
-        <ul class="flex gap-6 items-center">
-            <li><a href="#" class="hover:text-orange-500 transition-colors">Product</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition-colors">Solutions</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition-colors">Resources</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition-colors">Pricing</a></li>
-            <li><a href="#" class="hover:text-orange-500 transition-colors">Log in</a></li>
-            <li>
-                <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition-colors">
-                    Get AI free
-                </button>
-            </li>
-        </ul>
-    </nav>
+            <a href="#" class="text-xl font-bold tracking-tight text-gray-900">+ Project</a>
 
-    <!-- Hero Section -->
-    <section class="text-center py-16 bg-gradient-to-b from-orange-100 to-white">
+            <!-- Desktop nav links hidden on mobile -->
+            <ul class="hidden md:flex items-center gap-6 text-sm text-gray-600">
+                <li><a href="#" class="hover:text-orange-500 transition-colors">Product</a></li>
+                <li><a href="#" class="hover:text-orange-500 transition-colors">Solutions</a></li>
+                <li><a href="#" class="hover:text-orange-500 transition-colors">Resources</a></li>
+                <li><a href="#" class="hover:text-orange-500 transition-colors">Pricing</a></li>
+                <li><a href="#" class="hover:text-orange-500 transition-colors">Log in</a></li>
+                <li>
+                    <button class="bg-black text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">
+                        Get AI free
+                    </button>
+                </li>
+            </ul>
 
-        <h2 class="text-4xl font-bold mb-4">
-            Write, plan, share. With AI at your side.
-        </h2>
-
-        <p class="mb-12">
-            Manage your projects easily using one simple workspace.
-        </p>
-
-        <!-- Relative + Absolute CTA Buttons -->
-        <div class="relative w-96 h-24 mx-auto mb-16 border">
-
-            <button
-                class="absolute left-4 top-4 bg-black text-white px-5 py-2 rounded hover:bg-gray-800 hover:scale-105 transition-all">
-                Get AI free
-            </button>
-
-            <button
-                class="absolute right-4 bottom-4 border border-black px-5 py-2 rounded hover:bg-black hover:text-white transition-colors">
-                Request a demo
+            <!-- Mobile fallback button -->
+            <button class="md:hidden bg-black text-white text-sm px-4 py-2 rounded-lg">
+                Get started
             </button>
 
         </div>
+    </nav>
 
-        <!-- Dashboard Section -->
-        <div class="relative w-3/4 h-96 mx-auto border bg-white">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-orange-50 to-white text-center py-12 md:py-20 px-4">
+
+        <h1 class="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+            Write, plan, share. <br class="hidden md:block">
+            With AI at your side.
+        </h1>
+
+        <p class="text-gray-500 text-base md:text-lg mb-10 max-w-xl mx-auto">
+            Manage your projects easily using one simple workspace.
+        </p>
+
+        <!-- CTA Buttons: flex keeps them side-by-side on the same row -->
+        <div class="flex flex-wrap justify-center items-center gap-4 mb-16">
+            <button
+                id="cta-get-free"
+                class="bg-black text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-gray-800 hover:scale-105 transition-all">
+                Get AI free
+            </button>
+            <button
+                id="cta-demo"
+                class="border border-gray-900 text-gray-900 px-6 py-3 rounded-lg text-sm font-medium hover:bg-black hover:text-white transition-all">
+                Request a demo
+            </button>
+        </div>
+
+        <!-- Dashboard Preview: relative so floating cards position inside it -->
+        <div class="relative w-full max-w-4xl mx-auto h-72 md:h-96 rounded-2xl overflow-hidden border border-gray-200 shadow-xl">
 
             <img
-                src="./OIP.png"
-                alt="Dashboard"
+                src="./dashboard.png"
+                alt="Project management dashboard showing Kanban board and task progress"
                 class="w-full h-full object-cover">
 
-            <!-- Floating Card: Tasks -->
-            <div class="absolute top-5 left-5 bg-white border rounded-lg shadow-md p-3 flex items-center gap-2 hover:shadow-lg transition-shadow">
-                <span class="flex items-center justify-center w-8 h-8 rounded-full bg-green-100 text-green-600">
-                    <!-- check-circle icon -->
+            <!-- Floating card: top-left -->
+            <div
+                id="floating-tasks"
+                class="absolute top-4 left-4 z-10 bg-white border border-gray-100 rounded-xl shadow-md px-4 py-3 flex items-center gap-3 hover:shadow-lg transition-shadow">
+                <span class="flex items-center justify-center w-9 h-9 rounded-full bg-green-100 text-green-600 flex-shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                 </span>
                 <div class="text-left">
-                    <p class="text-xs text-gray-500">Tasks</p>
-                    <p class="text-sm font-medium">12 tasks completed today</p>
+                    <p class="text-xs text-gray-400 font-medium uppercase tracking-wide">Tasks</p>
+                    <p class="text-sm font-semibold text-gray-800">12 completed today</p>
                 </div>
             </div>
 
-            <!-- Floating Card: Project Status -->
-            <div class="absolute top-20 right-5 bg-white border rounded-lg shadow-md p-3 flex items-center gap-2 hover:shadow-lg transition-shadow">
-                <span class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600">
-                    <!-- trending-up icon -->
+            <!-- Floating card: top-right -->
+            <div
+                id="floating-status"
+                class="absolute top-4 right-4 z-10 bg-white border border-gray-100 rounded-xl shadow-md px-4 py-3 flex items-center gap-3 hover:shadow-lg transition-shadow">
+                <span class="flex items-center justify-center w-9 h-9 rounded-full bg-blue-100 text-blue-600 flex-shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                     </svg>
                 </span>
                 <div class="text-left">
-                    <p class="text-xs text-gray-500">Project Status</p>
-                    <p class="text-sm font-medium">On Track</p>
+                    <p class="text-xs text-gray-400 font-medium uppercase tracking-wide">Status</p>
+                    <p class="text-sm font-semibold text-gray-800">On Track</p>
                 </div>
             </div>
 
-            <!-- Floating Card: Team Activity -->
-            <div class="absolute bottom-5 left-1/2 -translate-x-1/2 bg-white border rounded-lg shadow-md p-3 flex items-center gap-2 hover:shadow-lg transition-shadow">
-                <div class="flex -space-x-2">
-                    <img src="./OIP1.png" alt="user" class="w-6 h-6 rounded-full border-2 border-white">
-                    <img src="./OIP1.png" alt="user" class="w-6 h-6 rounded-full border-2 border-white">
-                    <img src="./OIP1.png" alt="user" class="w-6 h-6 rounded-full border-2 border-white">
+            <!-- Floating card: bottom-center (left-1/2 + -translate-x-1/2 centers it) -->
+            <div
+                id="floating-team"
+                class="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 bg-white border border-gray-100 rounded-xl shadow-md px-4 py-3 flex items-center gap-3 hover:shadow-lg transition-shadow whitespace-nowrap">
+                <div class="flex -space-x-2 flex-shrink-0">
+                    <span class="w-6 h-6 rounded-full bg-purple-400 border-2 border-white flex items-center justify-center text-white text-xs font-bold">A</span>
+                    <span class="w-6 h-6 rounded-full bg-orange-400 border-2 border-white flex items-center justify-center text-white text-xs font-bold">B</span>
+                    <span class="w-6 h-6 rounded-full bg-blue-400 border-2 border-white flex items-center justify-center text-white text-xs font-bold">C</span>
                 </div>
                 <div class="text-left">
-                    <p class="text-xs text-gray-500">Team Activity</p>
-                    <p class="text-sm font-medium">+5 online</p>
+                    <p class="text-xs text-gray-400 font-medium uppercase tracking-wide">Team</p>
+                    <p class="text-sm font-semibold text-gray-800">+5 online now</p>
                 </div>
             </div>
 
@@ -107,10 +121,11 @@
 
     </section>
 
-    <!-- Fixed Chat Button -->
+    <!-- Fixed chat button: stays at viewport bottom-right while scrolling -->
     <button
-        class="fixed bottom-5 right-5 z-50 bg-blue-600 text-white px-4 py-3 rounded-full hover:bg-blue-700 hover:scale-105 transition-all">
-        Chat
+        id="chat-btn"
+        class="fixed bottom-5 right-5 z-50 bg-blue-600 text-white px-5 py-3 rounded-full text-sm font-medium hover:bg-blue-700 hover:scale-105 transition-all shadow-lg">
+        💬 Chat
     </button>
 
 </body>
